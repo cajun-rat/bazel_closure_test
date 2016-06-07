@@ -1,0 +1,1 @@
+# bazel_closure_test
