@@ -1,0 +1,17 @@
+# Hello World
+
+This project demonstrates using bazel and the Google Closure Compiler rules to build a hello world web app.
+
+The Javascript is compressed and minified using the Advanced Compilation mode
+
+The CSS is minified, and the class names are renamed to shorten them
+
+Soy templates are used to render the (single page) app.
+
+In development mode, the local site is served up using php in 'serve the local directory' mode. It can be run with_grep_options
+
+    bazel run //:run-httpd
+
+For production, a debian package is created containing the built artefacts.
+
+    dpkg-deb -c bazel-bin/bazeltest.deb
