@@ -59,7 +59,7 @@ closure_js_binary(
     "goog:hello.main"
   ],
   css = ":styles_bin",
-  output_wrapper = "%output%\n//# sourceMappingURL=javascript_bin.js.map"
+  # output_wrapper = "%output%\n//#sourceMappingURL=javascript_bin.js.map"
 )
 
 closure_js_test(
@@ -78,7 +78,7 @@ closure_css_library(
     "main.css",
   ],
   deps = [
-    # "@io_bazel_rules_closure//closure/library:css",
+    "@io_bazel_rules_closure//closure/library:css",
   ]
 )
 
