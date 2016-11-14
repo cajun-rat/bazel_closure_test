@@ -29,7 +29,7 @@ hello.main = function() {
 
     dialog1.setButtonSet(goog.ui.Dialog.ButtonSet.createContinueSaveCancel());
 
-    goog.events.listen(dialog1, goog.ui.Dialog.EventType.SELECT, function(e) {
+    goog.events.listen(dialog1, goog.ui.Dialog.EventType.SELECT, function( /** goog.ui.Dialog.Event! */ e) {
       alert('You chose: ' + e.key);
     });
 
