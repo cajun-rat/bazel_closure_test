@@ -37,6 +37,7 @@ closure_js_library(
     ":styles_lib",
     ":templates_lib",
     "@io_bazel_rules_closure//closure/library:library",
+    "@io_bazel_rules_closure//closure/library/ui:dialog",
   ]
 )
 
@@ -96,7 +97,7 @@ pkg_tar(
   name = "php_tar",
   package_dir = "/var/www/bazeltest/www-root",
   strip_prefix = "/php",
-  files = [
+  srcs = [
     ":php_srcs",
     ":styles_bin",
     ":javascript_bin",
