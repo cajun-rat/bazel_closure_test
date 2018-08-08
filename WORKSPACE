@@ -6,3 +6,13 @@ git_repository(
 
 load("@io_bazel_rules_closure//closure:defs.bzl", "closure_repositories")
 closure_repositories()
+
+
+git_repository(
+    name = "com_github_nelhage_rules_boost",
+    commit = "b8ff8b2b43ba3525dd3f3cfe5af78e74cb082cb8",
+    remote = "https://github.com/cajun-rat/rules_boost",
+)
+
+load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+boost_deps()
