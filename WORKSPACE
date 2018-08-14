@@ -43,3 +43,10 @@ pip_install()
 
 load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
 boost_deps()
+
+
+git_repository(
+    name = "gtest",
+    remote = "https://github.com/google/googletest",
+    commit = "3306848f697568aacf4bcca330f6bdd5ce671899",
+)
