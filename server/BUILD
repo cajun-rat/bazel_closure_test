@@ -11,5 +11,8 @@ cc_test (
     srcs = [
         "hello_test.cc",
     ],
-    deps = ["@gtest//:gtest"],
+    deps = [
+        "@gtest//:gtest",
+        "@gtest//:gtest_main"
+    ],
 )
