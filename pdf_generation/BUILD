@@ -1,0 +1,31 @@
+load(
+  "@io_bazel_rules_python//python:python.bzl",
+  "py_binary", "py_library", "py_test",
+)
+
+load("@pip_deps//:requirements.bzl", "requirement")
+
+py_binary(
+    name = "generate",
+    srcs = [
+        "generate.py"
+    ],
+    deps = [
+        requirement("WeasyPrint"),
+    ]
+)
+
+genrule(
+    name = "doc_pdf",
+    srcs = [
+        "doc.html",
+        "style.css",
+    ],
+    tools = [
+        ":generate",
+    ],
+    outs = [
+        "doc.pdf",
+    ],
+    cmd = "$(location :generate) --html $(location doc.html) --css $(location style.css) -o $(OUTS)",
+)

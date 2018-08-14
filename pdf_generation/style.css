@@ -1,0 +1,13 @@
+@page {
+    margin: 2.5cm 2.5cm;
+}
+body {
+    text-align: justify;
+    font-family: "DejaVuSans";
+    font-size: 12pt;
+}
+h1 { 
+    font-family: "Roboto";
+    font-size: 24pt;
+    font-weight: normal;
+}

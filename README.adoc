@@ -1,16 +1,20 @@
-# Hello World for Bazel rules_closure
+= Hello World for Bazel
 
-This project demonstrates using bazel and the Google Closure Compiler rules to build a hello world web app.
+This project is an experiment to use `bazel` to build a web application and create deployment artifacts.
 
-The Javascript is compressed and minified using the Advanced Compilation mode
+It uses rules_closure, rules_boost and rules_python to build the following features:
 
-The CSS is minified, and the class names are renamed to shorten them
 
-Soy templates are used to render the (single page) app.
+* The Javascript is compressed and minified using the Advanced Compilation mode of Google Closure Compiler.
+* UI components are pulled from Google Closure Library
+* The CSS is minified, and the class names are renamed to shorten them
+* Soy templates are used to render the (single page) app.
+* A dummy 'server' application in C++ is built against the Boost Beast Http library.
+* A static PDF is generated from HTML5 input at build time using weasyprint. 
 
 In development mode, the local site is served up using php in 'serve the local directory' mode. It can be run with:
 
-    bazel run //:run-httpd
+    bazel run //web_app:run-httpd
 
 The unit tests can be run with:
 
@@ -18,5 +22,11 @@ The unit tests can be run with:
 
 For production, a debian package is created containing the built artefacts.
 
-    bazel build //:bazeltest
-    dpkg-deb -c bazel-bin/bazeltest.deb
+    bazel build //web_app:bazeltest
+    dpkg-deb -c bazel-bin/web_app/bazeltest.deb
+
+== Notes
+
+The static PDF generation requires that 'python' is python3 (`virtualenv -p python3 venv` will fix that).
+
+`rules_closure` requires Java 8. Check with `java -version` and `javac -version`.
