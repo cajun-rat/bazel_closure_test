@@ -39,4 +39,5 @@ cc_test (
         "@gtest//:gtest",
         "@gtest//:gtest_main"
     ],
+    visibility = ["//visibility:public"],
 )
