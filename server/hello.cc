@@ -15,7 +15,7 @@ namespace http = boost::beast::http;    // from <boost/beast/http.hpp>
 // Performs an HTTP GET and prints the response
 int main(int argc, char** argv)
 {
-    std::cout << "hello\n";
+    std::cout << "hello world\n";
    try
     {
         // Check command line arguments.

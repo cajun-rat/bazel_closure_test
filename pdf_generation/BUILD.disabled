@@ -12,7 +12,8 @@ py_binary(
     ],
     deps = [
         requirement("WeasyPrint"),
-    ]
+    ],
+    default_python_version = "PY3",
 )
 
 genrule(

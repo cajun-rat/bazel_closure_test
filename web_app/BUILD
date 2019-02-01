@@ -17,7 +17,6 @@ filegroup(
     ]
 )
 
-
 sh_binary(
     name = "run-httpd",
     srcs = ["run-httpd.sh"],
@@ -38,7 +37,7 @@ closure_js_library(
     ":templates_lib",
     "@io_bazel_rules_closure//closure/library:library",
     "@io_bazel_rules_closure//closure/library/ui:dialog",
-  ]
+  ],
 )
 
 
@@ -61,6 +60,7 @@ closure_js_binary(
   ],
   css = ":styles_bin",
   # output_wrapper = "%output%\n//#sourceMappingURL=javascript_bin.js.map"
+  visibility = ["//visibility:public"],
 )
 
 closure_js_test(
@@ -88,7 +88,8 @@ closure_css_binary(
   name = "styles_bin",
   deps = [
     ":styles_lib"
-  ]
+  ],
+  visibility = ["//visibility:public"],
 )
 
 # Packaging Rules

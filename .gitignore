@@ -3,3 +3,6 @@
 /bazel-genfiles
 /bazel-out
 /bazel-testlogs
+.vscode
+/venv
+/venv-plain
