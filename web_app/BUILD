@@ -97,7 +97,7 @@ closure_css_binary(
 pkg_tar(
   name = "php_tar",
   package_dir = "/var/www/bazeltest/www-root",
-  strip_prefix = "/php",
+  strip_prefix = "/web_app",
   srcs = [
     ":php_srcs",
     ":styles_bin",
