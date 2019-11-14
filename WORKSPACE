@@ -1,26 +1,39 @@
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 git_repository(
-    name = "io_bazel_rules_closure",
-    remote = "https://github.com/bazelbuild/rules_closure.git",
-    commit = "1e531288a47623c6631cadfc4c18aa08edc30895", # 2019-02-01
-)
-
-load("@io_bazel_rules_closure//closure:defs.bzl", "closure_repositories")
-closure_repositories()
-
-
-git_repository(
     name = "com_github_nelhage_rules_boost",
-    commit = "b8ff8b2b43ba3525dd3f3cfe5af78e74cb082cb8",
-    remote = "https://github.com/cajun-rat/rules_boost",
+    commit = "42f44d4b1fafb1974e9ea85835379fb2ecde7958",
+    remote = "https://github.com/nelhage/rules_boost",
+    shallow_since = "1573673427 -0800",
 )
 
-git_repository(
-    name = "io_bazel_rules_python",
-    remote = "https://github.com/bazelbuild/rules_python.git",
-    commit = "ebd7adcbcafcc8abe3fd8e5b0e42e10ced1bfe27",
+load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+
+boost_deps()
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "io_bazel_rules_closure",
+    sha256 = "7d206c2383811f378a5ef03f4aacbcf5f47fd8650f6abbc3fa89f3a27dd8b176",
+    strip_prefix = "rules_closure-0.10.0",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_closure/archive/0.10.0.tar.gz",
+        "https://github.com/bazelbuild/rules_closure/archive/0.10.0.tar.gz",
+    ],
 )
+
+load("@io_bazel_rules_closure//closure:repositories.bzl", "rules_closure_dependencies", "rules_closure_toolchains")
+
+rules_closure_dependencies()
+
+rules_closure_toolchains()
+
+#git_repository(
+#    name = "io_bazel_rules_python",
+#    commit = "ebd7adcbcafcc8abe3fd8e5b0e42e10ced1bfe27",
+#    remote = "https://github.com/bazelbuild/rules_python.git",
+#)
 
 # Disabled. Needs Python3 support
 # Only needed for PIP support:
@@ -40,20 +53,14 @@ git_repository(
 #load("@pip_deps//:requirements.bzl", "pip_install")
 #pip_install()
 
-
-load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
-boost_deps()
-
-
 git_repository(
     name = "gtest",
-    remote = "https://github.com/google/googletest",
     commit = "3306848f697568aacf4bcca330f6bdd5ce671899",
+    remote = "https://github.com/google/googletest",
 )
 
-
-git_repository (
+git_repository(
     name = "bazel_compilation_database",
-    remote = "https://github.com/grailbio/bazel-compilation-database",
     commit = "7bc80f9355b09466fffabce24d463d65e37fcc0f",
+    remote = "https://github.com/grailbio/bazel-compilation-database",
 )

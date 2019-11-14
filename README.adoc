@@ -16,7 +16,7 @@ In development mode, the local site is served up using php in 'serve the local d
 
     bazel run //web_app:run-httpd
 
-Altervatively, it can be served with Boost Beast using:
+Alternatively, it can be served with Boost Beast using:
 
     bazel run //server:server
     firefox http://localhost:8080/web_app/index.php
