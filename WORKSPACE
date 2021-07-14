@@ -2,14 +2,14 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 git_repository(
     name = "com_github_nelhage_rules_boost",
-    commit = "42f44d4b1fafb1974e9ea85835379fb2ecde7958",
+    commit = "1e3a69bf2d5cd10c34b74f066054cd335d033d71",
     remote = "https://github.com/nelhage/rules_boost",
-    shallow_since = "1573673427 -0800",
+    shallow_since = "1591047380 -0700",
 )
 
 load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
-
 boost_deps()
+
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
@@ -61,6 +61,6 @@ git_repository(
 
 git_repository(
     name = "bazel_compilation_database",
-    commit = "7bc80f9355b09466fffabce24d463d65e37fcc0f",
+    commit = "aa58494efdf31c3e3525832b3d44d48bb3bc2b0b",
     remote = "https://github.com/grailbio/bazel-compilation-database",
 )
